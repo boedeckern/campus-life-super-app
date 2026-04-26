@@ -26,8 +26,12 @@ async function getQuoteAPI(){
     const urlToUse=`https://corsproxy.io/?url=${encodeURIComponent(url)}`;
     const response=await fetch(urlToUse);
     const data=await response.json();
-    console.log(data);
-    //Implement data organization and display
+    //console.log(data);
+    const quoteEl=document.getElementById("quoteText");
+    const authEl=document.getElementById("quoteAuthor");
+    const quoteArray=data[0]
+    quoteEl.textContent=`"${quoteArray.q}"`;
+    authEl.textContent=`-${quoteArray.a}`;
 }
 
 getWeatherAPI();
