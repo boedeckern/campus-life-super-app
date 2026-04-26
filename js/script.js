@@ -22,6 +22,11 @@ async function getWeatherAPI(){
 }
 
 async function getQuoteAPI(){
+    const url="https://zenquotes.io/api/random";
+    const urlToUse=`https://corsproxy.io/?url=${encodeURIComponent(url)}`;
+    const response=await fetch(urlToUse);
+    const data=await response.json();
+    console.log(data);
     //Implement data organization and display
 }
 
